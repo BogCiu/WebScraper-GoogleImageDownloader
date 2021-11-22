@@ -13,8 +13,13 @@ PATH = os.getcwd() + "\chromedriver.exe"
 wd = webdriver.Chrome(PATH)
 
 downloaded_image_type ="real animal cat"
+amount_downloaded = 5
 try:
     downloaded_image_type = sys.argv[1]
+except:
+    pass
+try:
+    amount_downloaded = int(sys.argv[2])
 except:
     pass
 
@@ -79,7 +84,7 @@ def download_image(download_path, url, file_name):
         print("Failed on", e)
 
 
-urls = get_image(downloaded_image_type, wd, 1, 50)
+urls = get_image(downloaded_image_type, wd, 1, amount_downloaded)
 
 os.mkdir(downloaded_image_type)
 
